@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Princeton GTC Website
+
+Professional website for Princeton International General Trading Company W.L.L. - a leading Oil & Gas supplier in Kuwait.
+
+## About
+
+Princeton GTC is one of the leading suppliers & stockists for the complete range of Oil & Gas, Petrochemical, Power Generation, Renewable Energy, and EPC industries. This website showcases their products and services including Mechanical, Electrical, Instrumentation, and Valves divisions.
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS 4
+- **Animations**: Framer Motion
+- **Email**: Resend
+- **Language**: TypeScript
+
+## Features
+
+- Responsive design (mobile, tablet, desktop)
+- Smooth scroll animations
+- Interactive product gallery with category filtering
+- Contact form with email integration
+- SEO optimized with meta tags, Open Graph, and JSON-LD
+- Auto-generated sitemap and robots.txt
+- PWA support
+
+## Pages
+
+| Page | Route | Description |
+|------|-------|-------------|
+| Home | `/` | Hero, services, clients, distributors |
+| About | `/about` | Company info, mission, values |
+| Oil & Gas | `/oil-gas` | Services overview |
+| Mechanical | `/oil-gas/mechanical` | Pipes, flanges, fittings |
+| Electrical | `/oil-gas/electrical` | Cables, explosion-proof fittings |
+| Instrumentation | `/oil-gas/instrumentation` | Tube fittings, fasteners |
+| Valves | `/oil-gas/valves` | Industrial valves, strainers |
+| Gallery | `/gallery` | Product image gallery |
+| Contact | `/contact` | Contact form |
+| Careers | `/careers` | Job opportunities |
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file in the root directory:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+# Resend API Key (for contact form emails)
+RESEND_API_KEY=re_your_api_key_here
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+### Vercel (Recommended)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push to GitHub
+2. Import project in [Vercel](https://vercel.com)
+3. Add environment variables
+4. Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Other Platforms
 
-## Deploy on Vercel
+Build the project and deploy the `.next` folder:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Configuration
+
+### Update Domain
+
+Before deploying, update the domain in:
+- `app/layout.tsx` (metadataBase)
+- `app/sitemap.ts`
+- `app/robots.ts`
+
+### Email Setup
+
+1. Sign up at [resend.com](https://resend.com)
+2. Get your API key
+3. Add to `.env.local`
+4. (Optional) Verify your domain for custom sender address
+
+## Project Structure
+
+```
+├── app/
+│   ├── components/     # Reusable components
+│   ├── about/          # About page
+│   ├── oil-gas/        # Oil & Gas pages
+│   │   ├── mechanical/
+│   │   ├── electrical/
+│   │   ├── instrumentation/
+│   │   └── valves/
+│   ├── gallery/        # Gallery page
+│   ├── contact/        # Contact page
+│   ├── careers/        # Careers page
+│   ├── api/            # API routes
+│   ├── layout.tsx      # Root layout
+│   ├── page.tsx        # Home page
+│   ├── sitemap.ts      # Auto-generated sitemap
+│   └── robots.ts       # Robots.txt config
+├── public/
+│   ├── images/         # Product & client images
+│   ├── logo.png        # Company logo
+│   └── manifest.json   # PWA manifest
+└── next.config.ts      # Next.js configuration
+```
+
+## License
+
+Private - All rights reserved.
