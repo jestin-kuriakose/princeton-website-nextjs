@@ -69,10 +69,12 @@ const clients = [
 
 const distributors = [
   { name: 'Astec', logo: '/images/distributors/astec-alli.png' },
-  { name: 'DFE Engineering', logo: '/images/distributors/DFE-Engineering-al.png' },
-  { name: 'Flange Guard', logo: '/images/distributors/FLANGE-GUARD.png' },
   { name: 'Oman Gasket', logo: '/images/distributors/OMAN-GASKET-alli.png' },
-  { name: 'Stiram', logo: '/images/distributors/STIRAM.png' },
+  { name: 'Bfe', logo: '/images/distributors/bfe.jpeg' },
+  { name: 'Padana', logo: '/images/distributors/padana.jpeg' },
+  { name: 'Delcorte', logo: '/images/distributors/delcorte.jpeg' },
+  { name: 'ST&H Forging', logo: '/images/distributors/shanxi.jpeg' },
+  { name: 'DipFlon', logo: '/images/distributors/DFE-Engineering-new.jpeg' },
 ];
 
 export default function Home() {
@@ -192,8 +194,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Distributors Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <SectionHeading
+            subtitle="Our Partners"
+            title="Authorized Distributors"
+            description="We are the local agents and distributors for these reputed manufacturers."
+          />
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center mt-12">
+            {distributors.map((distributor, index) => (
+              <AnimatedSection key={distributor.name} delay={index * 0.1}>
+                <div className="flex items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                  <Image
+                    src={distributor.logo}
+                    alt={distributor.name}
+                    width={150}
+                    height={80}
+                    className="max-h-16 w-auto object-contain"
+                  />
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Clients Section */}
-      <section className="section-padding bg-white" ref={clientsRef}>
+      <section className="section-padding bg-gray-50" ref={clientsRef}>
         <div className="container-custom">
           <SectionHeading
             subtitle="Our Clients"
@@ -225,33 +254,6 @@ export default function Home() {
               </motion.div>
             ))}
           </motion.div>
-        </div>
-      </section>
-
-      {/* Distributors Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <SectionHeading
-            subtitle="Our Partners"
-            title="Authorized Distributors"
-            description="We are the local agents and distributors for these reputed manufacturers."
-          />
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center mt-12">
-            {distributors.map((distributor, index) => (
-              <AnimatedSection key={distributor.name} delay={index * 0.1}>
-                <div className="flex items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                  <Image
-                    src={distributor.logo}
-                    alt={distributor.name}
-                    width={150}
-                    height={80}
-                    className="max-h-16 w-auto object-contain"
-                  />
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
         </div>
       </section>
 
